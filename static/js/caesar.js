@@ -32,15 +32,37 @@ $(document).ready(function(){
     const key = $("input[name='number-setting']").val();
     const type = $(".process-btn").text().toLowerCase();
     const text = $("#plaintext-area").val();
-    let dat = {"type": type, "key": key, "text": text};
-    $.ajax({
-        url: "/api/cipher/",
-        type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(dat),
-        success: function(result) {
-          $("#ciphertext-area").val(result.output);
-        }
-    });
+    for (let i = 0; i < text.length; i++) { 
+      teks = text.charCodeAt(i);
+      if ((teks < 65 || (teks > 90 && teks < 97) || teks > 122) && teks !=32) {
+          $.bootstrapGrowl("Masukkan harus berupa karakter!!", {
+            ele: 'body', // which element to append to
+            type: 'danger', // (null, 'info', 'danger', 'success')
+            offset: {from: 'top', amount: 400}, // 'top', or 'bottom'
+            align: 'center', // ('left', 'right', or 'center')
+            width: 350, // (integer, or 'auto')
+            delay: 1500, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!
+            allow_dismiss: true, // If true then will display a cross to close the popup.
+            stackup_spacing: 10, // spacing between consecutively stacked growls.
+          });
+        $(".process-btn").preventDefault();
+      }
+    }
+    for (let i = 0; i < text.length; i++) {
+      teks = text.charCodeAt(i);
+      if ((teks > 64 && teks < 91) || (teks > 96 && teks < 123) || teks == 32) {
+        let dat = {"type": type, "key": key, "text": text};
+        $.ajax({
+            url: "/api/cipher/",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(dat),
+            success: function(result) {
+              $("#ciphertext-area").val(result.output);
+            }
+        });
+      }
+    }
+    
   });
 });

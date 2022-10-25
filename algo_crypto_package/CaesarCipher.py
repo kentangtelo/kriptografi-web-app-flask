@@ -7,12 +7,10 @@ def encrypt(key, plainText):
 
     for character in plainText:
         if character.upper() in LETTERS:
-            print(character, 1)
             # mencari posisi karakter yang kapital
             if character.isupper():
                 position = LETTERS.find(character)
                 position = position + key
-                print(character, 2)
                 # Menjaga jika posisi >= panjang dari LETTERS
                 if position >= len(LETTERS):
                     position = position - 26
@@ -23,7 +21,6 @@ def encrypt(key, plainText):
             else:
                 position = LETTERS.find(character.upper())
                 position = position + key
-                print(character, 3)
                 # Menjaga jika posisi >= panjang dari LETTERS
                 if position >= len(LETTERS):
                     position = position - 26
