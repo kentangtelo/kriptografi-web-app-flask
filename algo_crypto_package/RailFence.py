@@ -9,7 +9,6 @@ def encrypt(plainText, key):
     rail = [["\n" for i in range(len(plainText))] for j in range(key)]
     directionDown = False
     row, col = 0, 0
-    print(rail)
     for i in range(len(plainText)):
         # Cek arah aliran
         # balik arah jika sudah mengisi
@@ -81,7 +80,7 @@ def decrypt(cipherText, key):
         for j in range(len(cipherText)):
             if rail[i][j] == "*" and index < len(cipherText):
                 rail[i][j] = cipherText[index]
-                print(rail[i][j], i, j)
+                # print(rail[i][j], i, j)
                 index = index + 1
     result = []
     row, col = 0, 0
@@ -96,7 +95,7 @@ def decrypt(cipherText, key):
         # Taruh penanda
         if rail[row][col] != "*":
             result.append(rail[row][col])
-            print(result)
+            # print(result)
             col = col + 1
 
         # cari baris selanjutnya
