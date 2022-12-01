@@ -15,4 +15,5 @@ pip install -r requirements.txt
 
 ### Second Way
 - Access application  : 
-  https://kriptografiweb.herokuapp.com/ (no longer accessible, heroku not free anymore sadKEK)
+
+  https://kriptografiweb.herokuapp.com/
