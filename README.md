@@ -1,5 +1,5 @@
 # How to use the application :
-### First Way
+
 1. Clone the repository 
 ```
 git clone https://github.com/kentangtelo/kriptografi-web-app-flask.git
@@ -13,7 +13,3 @@ pip install -r requirements.txt
 ./app.py
 ```
 
-### Second Way
-- Access application  : 
-
-  https://kriptografiweb.herokuapp.com/
